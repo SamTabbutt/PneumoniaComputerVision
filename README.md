@@ -47,5 +47,5 @@ The imageSet object has two notable fields:
 ### Defining and training model
 
 The process for defining and training the model are in the module ```kerasPipeline.py```. The model is defined as a class child to ```tf.keras.Model``` and is represented by the following chart:
-![text](https://github.com/SamTabbutt/PneumoniaComputerVision/blob/master/misc/disp/modelinit.JPG)
+![text](https://github.com/SamTabbutt/PneumoniaComputerVision/blob/master/misc/disp/ModelInit.png)
 
