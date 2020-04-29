@@ -49,3 +49,7 @@ The imageSet object has two notable fields:
 The process for defining and training the model are in the module ```kerasPipeline.py```. The model is defined as a class child to ```tf.keras.Model``` and is represented by the following chart:
 ![text](https://github.com/SamTabbutt/PneumoniaComputerVision/blob/master/misc/disp/ModelInit.png)
 
+The initial run yielded the following run-time statistics:
+![text](https://github.com/SamTabbutt/PneumoniaComputerVision/blob/master/misc/disp/InitStats.JPG)
+
+In summary, the semmingly trivial model was able to evaluate the test set with 100% accuracy.
