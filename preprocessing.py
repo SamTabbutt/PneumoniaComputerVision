@@ -3,7 +3,7 @@ import numpy as np
 from glob import glob
 from matplotlib import pyplot as plt
 import os
-from progressBar import printProgressBar
+from misc.progressBar import printProgressBar
 
 class imageSet():
     def __init__(self,labeled,path,targetShape):
@@ -16,6 +16,7 @@ class imageSet():
         X_direct = []
         y = []
         l = len(glob(path+'/*'))
+        numbact = 0
         printProgressBar(0, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
         for i,im_path in enumerate(glob(path+'/*')):
             printProgressBar(i + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
@@ -23,13 +24,16 @@ class imageSet():
             resized = cv2.resize(init,targetShape,interpolation=cv2.INTER_LINEAR)
             X_direct.append(resized)
             if self.labeled:
-                if 'NORMAL' in path:
+                if 'NORMAL' in im_path:
                    y.append(0)
-                elif 'bacteria' in path:
+                elif 'bacteria' in im_path:
                     y.append(1)
+                    numbact+=1
                 else:
                     y.append(2)
-        X_direct = np.stack(X_direct,axis=0)
+        percentBact = numbact/len(X_direct)
+        print("Percent Bact",percentBact)
+        X_direct = np.stack(X_direct,axis=0)/255
         return X_direct,np.asarray(y)
     
     def saveVersion(self,set_name):

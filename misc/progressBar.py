@@ -1,3 +1,4 @@
+#Taken directly from https://stackoverflow.com/questions/3173320/text-progress-bar-in-the-console
 # Print iterations progress
 def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█', printEnd = "\r"):
     """

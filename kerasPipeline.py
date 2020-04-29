@@ -6,7 +6,6 @@ from preprocessing import imageSet
 from datetime import datetime
 from tensorflow.keras.utils import plot_model
 
-# Load the TensorBoard notebook extension
 
 class PneumoniaModel(tf.keras.Model):
     def __init__(self):
@@ -28,15 +27,17 @@ class PneumoniaModel(tf.keras.Model):
 input_shape = (100,100)
 batch_size = 50
 epochs = 3
+
+working_dir = os.path.dirname(os.path.realpath(__file__))
+
 #Data flow from various sources
 #For initial test import saved numpys from DoG calculations
-def getXy(pathName):    
-    working_dir = os.path.dirname(os.path.realpath(__file__))
-    data_dir = os.path.join(working_dir,'chest_xray',pathName)
+def getXy(pathName): 
+    data_dir = os.path.join(working_dir,'chest_xray',pathName)   
     negative = imageSet(True,os.path.join(data_dir,'NORMAL'),input_shape)
     positive = imageSet(True,os.path.join(data_dir,'PNEUMONIA'),input_shape)
 
-    X = np.concatenate([negative.X,positive.X])/255
+    X = np.concatenate([negative.X,positive.X])
     y = np.concatenate([negative.y,positive.y])
     X = X.reshape(len(X),input_shape[0],input_shape[1],1)
     return X,y
@@ -58,8 +59,6 @@ print('Compiled model')
 X_train,y_train = getXy('train')
 X_val,y_val = getXy('val')
 X_test,y_test = getXy('test')
-
-
 
 start = datetime.now()
 
