@@ -19,7 +19,7 @@ Train a machine learning model using the training and validation datasets and ap
 ## Solution
 
 In identifying and solving the problem, there are three processes necesarry:
-- Unpack and preprocess data
+- [Unpack and preprocess data](https://github.com/SamTabbutt/PneumoniaComputerVision/blob/master/README.md#preprocessing)
 - Define and train ML model
 - Run model on test set
 
@@ -44,3 +44,7 @@ The imageSet object has two notable fields:
 
 *NOTE*: For user interfacing with the terminal, I used [this script](https://stackoverflow.com/questions/3173320/text-progress-bar-in-the-console) to provide a status of the unpacking of the images. It is in the path ```<working_dir>/misc/progressBar.py```
 
+### Defining and training model
+
+The process for defining and training the model are in the module ```kerasPipeline.py```. The model is defined as a class child to ```tf.keras.Model``` and can be represented by the following chart:
+![text](https://github.com/SamTabbutt/PneumoniaComputerVision/blob/master/disp/model_init.JPG)
