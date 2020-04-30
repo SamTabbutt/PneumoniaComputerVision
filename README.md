@@ -39,8 +39,6 @@ The imageSet object takes three arguments:
 The imageSet object has two notable fields:
 - self.X (*numpy array*): normalized numpy array of shape (N,h,w,1) where N is the number of photos in the folder. self.X has a range of [0,1]
 
-![formula](https://render.githubusercontent.com/render/math?math=X%20\equiv%20\{(i,\overline{\rm%20f},1):\overline{\rm%20f}\in[0,1]^{h\times%20w}\land%20i%20<%20N\})
-
 - self.y (*numpy array*): numpy array containing labels of shape (N,) where N is the number of photos in the folder. self.y is defined in a discrete range over the set {0,1,2} with each number corresponding to the label defined above. 
 
 *NOTE*: For each image in the folder 'path', there exists an element in self.X at position n that is the normalized and resized representation of the image with the corresponding label at the nth position of self.y
